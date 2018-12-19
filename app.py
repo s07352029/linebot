@@ -82,7 +82,14 @@ def handle_message(event):
     elif '!h' in _token[0] or '!help' in _token[0]:
         _message = TextSendMessage(text="請輸入:課程, 誠品, 空氣 + <關鍵字>")
         line_bot_api.reply_message(event.reply_token, _message)
-	
+    else:
+        search_result = get_search_engine(_token[0], 3)
+        reply = "您所搜尋的結果為：\n"
+        line_bot_api.reply_message(event.reply_token,reply)
+        for r in search_result:
+            result_message = r[0] + "("+r[1]+")"
+            line_bot_api.push_message(event.source.user_id, TextSendMessage(text=result_message))
+
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
         load_dict = json.load(load_f)
@@ -125,7 +132,25 @@ def getCls(cls_prefix):
 
     return ret_cls
         
-            
+# 爬搜尋引擎，預設爬回傳4筆
+def get_search_engine(search_thing, result_num=4):
+    result = []
+    target_url = 'https://www.bing.com/search'
+    target_param = urllib.parse.urlencode({'q':search_thing}) # Line bot 所接收的關鍵字 !!!!
+    target = target_url + '?' + target_param
+    r = requests.get(target)
+    html_info = r.text # 抓取 HTML 文字
+    soup = BeautifulSoup(html_info, 'html.parser')
+    search_result = soup.find('ol', {'id': 'b_results'}) #搜尋所有結果
+    search_result_li = search_result.find_all('li', {'class':'b_algo'}) # 每一則的結果
+    for idx, li in enumerate(search_result_li):
+        if idx < result_num:
+            target_tag = li.find('h2').find('a') # 每一則的超連結
+            title = target_tag.get_text() # 每一則的標題
+            href= target_tag['href'] # 每一則的網址
+            result.append((title, href))
+    return result
+
 import os
 if __name__ == "__main__":
     # load PM2.5 records
