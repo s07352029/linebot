@@ -135,9 +135,9 @@ def getCls(cls_prefix):
 # 爬搜尋引擎，預設爬回傳4筆
 def get_search_engine(search_thing, result_num=4):
     result = []
-    target_url = 'https://www.google.com.tw/search?source=hp&q='
-    target_param = urllib.parse.urlencode({'':search_thing}) # Line bot 所接收的關鍵字 !!!!
-    target = target_url +  target_param
+    target_url = 'https://www.bing.com/search'
+    target_param = urllib.parse.urlencode({'q':search_thing}) # Line bot 所接收的關鍵字 !!!!
+    target = target_url + ? + target_param
     r = requests.get(target)
     html_info = r.text # 抓取 HTML 文字
     soup = BeautifulSoup(html_info, 'html.parser')
