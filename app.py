@@ -79,9 +79,6 @@ def handle_message(event):
                 _message = TextSendMessage(text=pm_site[_site]) #reply pm2.5 for the site
                 line_bot_api.reply_message(event.reply_token, _message)
                 break;
-    elif '右轉' in _token[0] or '左轉' in _token[0]:
-            _message = TextSendMessage(text='收到')	#reply course
-            line_bot_api.reply_message
 
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
@@ -146,10 +143,9 @@ def text_reply(msg):
 #            result.append((title, href))
 #    return result
 
-# import os
-#if __name__ == "__main__":
-    # load PM2.5 records
-    # loadPMJson()
-    
-#    port = int(os.environ.get('PORT', 5000))
-#    app.run(host='0.0.0.0', port=port)
+import os
+if __name__ == "__main__":
+     load PM2.5 records
+     loadPMJson()
+     port = int(os.environ.get('PORT', 5000))
+     app.run(host='0.0.0.0', port=port)
