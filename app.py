@@ -142,9 +142,6 @@ def text_reply(msg):
 #            href= target_tag['href'] # 每一則的網址
 #            result.append((title, href))
 #    return result
-if input()=='右轉'or'左轉':
-    print('收到')
-
 import os
 if __name__ == "__main__":
      #load PM2.5 records
