@@ -81,7 +81,7 @@ def handle_message(event):
                 break;
     elif '右轉' in _token[0] or '左轉' in _token[0]:
             _message = TextSendMessage(text='收到')	#reply course
-            line_bot_api.reply_message(event.reply_token, _message)
+            line_bot_api.reply_message
 
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
