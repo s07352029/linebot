@@ -54,7 +54,7 @@ def handle_message(event):
         message=TextSendMessage(text='收到(≧ω≦)')
         line_bot_api.reply_message(event.reply_token,message)
     elif '出發' in msg or '開始' in msg or '開始記錄' in msg:
-        message=TextSendMessage(text='已開始記錄（๑✧∀✧๑）')
+        message=TextSendMessage(text='已開始記錄(๑✧∀✧๑)')
         line_bot_api.reply_message(event.reply_token,message)
     elif '到達' in msg or '停止' in msg or '停止記錄' in msg:
         message=TextSendMessage(text='已停止記錄(๑>ᴗ<๑)')
