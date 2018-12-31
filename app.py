@@ -50,11 +50,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg=event.message.text
-    if msg=='右轉'or'左轉':
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='收到'))
-    elif msg=='abc':
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='def'))
-  
+    if '右轉' in msg or '左轉' in msg:
+        message=TextSendMessage(text='收到')
+        line_bot_api.reply_message(event.reply_token,message)
+    elif 'abc' in msg:
+        message=TextSendMessage(text='def')
+        line_bot_api.reply_message(event.reply_token,message)
 
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
