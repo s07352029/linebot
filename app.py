@@ -51,6 +51,7 @@ def callback():
 def handle_message(event):
      if '右轉' in _token[0] or '左轉' in _token[0]:
             messenge=ms(_token[1])
+            msg=event.message.text
             for msg in messnge:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='收到'))
   
