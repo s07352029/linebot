@@ -51,7 +51,7 @@ def callback():
 def handle_message(event):
      msg=event.message.text
      print(msg)
-     line_bot_api.reply_message(event.reply_token,TextSendMessage(text='倒數')
+     line_bot_api.reply_message(event.reply_token,TextSendMessage(text='倒數'))
 
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
