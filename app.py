@@ -51,8 +51,7 @@ def callback():
 def handle_message(event):
     msg=event.message.text
     if msg=='右轉'or'左轉':
-        print('收到')
-        #line_bot_api.reply_message(event.reply_token,TextSendMessage(text='收到'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='收到'))
   
 
 def find_bookls(kw):
