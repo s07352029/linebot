@@ -51,7 +51,7 @@ def callback():
 def handle_message(event):
     msg=event.message.text
     if '右轉' in msg or '左轉' in msg:
-        message=TextSendMessage(text='收到≧ω≦')
+        message=TextSendMessage(text='收到(≧ω≦)')
         line_bot_api.reply_message(event.reply_token,message)
     elif '出發' in msg or '開始' in msg or '開始記錄' in msg:
         message=TextSendMessage(text='已開始記錄（๑✧∀✧๑）')
