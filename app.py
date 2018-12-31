@@ -59,6 +59,9 @@ def handle_message(event):
     elif '到達' in msg or '停止' in msg or '停止記錄' in msg:
         message=TextSendMessage(text='已停止記錄(๑>ᴗ<๑)')
         line_bot_api.reply_message(event.reply_token,message)
+    else:
+        message=TextSendMessage(text='請要繼續支持鄧紫棋唷<3')
+        line_bot_api.reply_message(event.reply_token,message)
 
 def find_bookls(kw):
     with open("ESLITE.json",'r') as load_f:
